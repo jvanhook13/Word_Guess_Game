@@ -38,9 +38,28 @@
  if (word[j] === guess) {
  answerArray[j] = guess;
  remainingLetters--;
+            let playerGuessesLeft = 3 ;
+            let playerWins = 0 ;
+            alert("you have " + playerGuessesLeft + " guesses left") ; 
+            if (remainingletters = 0) {playerWins++ }
+            else if (word[j] !== guess)  { playerGuessesLeft--
+
+                
+
+
+            } ;
+            console.log( "remaining letters" , remainingLetters)
+            console.log("playerGuessesLeft" , playerGuessesLeft) ;
+            console.log("playerWins" , playerWins) ;
  }
  }
+            
+            // alert(playerGuessesLeft) ;
  }
+
+
+
+
  // The end of the game loop
  }
  // Show the answer and congratulate the player

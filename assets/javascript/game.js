@@ -6,12 +6,13 @@ var answerArray = [];
 for (var i = 0; i < word.length; i++) {
     answerArray[i] = "_";
 }
-
 var blanks = randomWords.length;
 
+
 while (blanks > 0) {
-    // alert(answerArray.join(" "));
-    var playerInput = prompt("Make your guess")
+    
+    alert(answerArray.join(" "));
+    var playerInput = prompt("Make your guess").toLowerCase()
     if (playerInput === null) {
         break;
 
@@ -21,28 +22,31 @@ while (blanks > 0) {
 
     } else {
         for ( var j = 0; j < word.length; j++) {
-            if (word[j] === playerInput) {
+            if (word[j] == playerInput) {
                 answerArray[j] = playerInput;
                 blanks--;
-                console.log(answerArray[j] , "Answerarray")
-                console.log(playerInput , "playerInput")
+                console.log(answerArray[j] , "Answerarray") ;
+                console.log(playerInput , "playerInput") ;
             } ;
 
             let playerGuessesLeft = 3 ;
-            // alert("you have" + playerGuessesLeft + "guesses left") ; 
-            if (playerInput === true) {playerGuessesLeft ; }
-            else if (playerInput === false) {
+            let playerWins = 0 ;
+            alert("you have " + playerGuessesLeft + " guesses left") ; 
+            if (blanks = 0) {playerWins++ }
+            else if (word[j] !== playerInput)  { playerGuessesLeft--
 
-                playerGuessesLeft-1 ;
+                
 
 
             } ;
-            console.log("playerGuessesLeft" , playerGuessesLeft)
-            alert(playerGuessesLeft)
+            console.log( "word" , word[j])
+            console.log("playerGuessesLeft" , playerGuessesLeft) ;
+            console.log("playerWins" , playerWins) ;
+            // alert(playerGuessesLeft) ;
 
         }
     }
 }
 
 // alert(answerArray.join(""));
-alert("You guessed it")
+alert("You guessed it") ;
