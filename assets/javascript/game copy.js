@@ -5,6 +5,7 @@ var word = randomWords[Math.floor(Math.random() * randomWords.length)];
 var lettersGuessed = [];
 var remainingGuesses = 6;
 var wins = 0;
+var losses = 0 ;
 var displayWord = []
 
 
@@ -23,12 +24,67 @@ console.log("blanks", blanks)
 
 for (var i = 0; i < blanks; i++) {
     displayWord.push("_");
-    console.log("displayWord", displayWord)
+    
+}
+
+function checkLoop() {
+
+    for (var i = 0; i < blanks; i++) {
+        if (word[i] == playerInput) {
+            answerArray[i] == playerInput;
+            displayWord.join(playerInput) ;
+            blanks-- ;
+            console.log("display " , displayWord) ;
+            console.log(blanks)
+                return 
+            
+
+        }
+
+        else {
+
+            lettersGuessed.push(playerInput);
+            remainingGuesses--;
+            console.log("guesses left " , remainingGuesses) ;
+                return
+        };
+
+
+
+} } ;
+
+function winLoss () {
+
+    if (remainingGuesses < 0) {
+
+        losses++ ;
+
+        console.log("losses" , losses)
+
+        console.log("Game Over")
+
+    }
+
+    else if (blanks <= 0) {
+
+        wins++ ;
+
+        console.log("wins" , wins)
+
+        console.log("You win")
+
+
+
+    }
+
+
 }
 
 gameLoop:
 
-    do {
+        while (blanks > 0) {
+
+        
 
 
         // gives prompt to user and what to do with the input
@@ -40,57 +96,24 @@ gameLoop:
             alert("Please enter one letter");
 
 
-        } else {
+        }
 
-            //sets function to check for right answer
+        else {
+            checkLoop(playerInput)
+            winLoss()
 
-            function plzWork() {
-                var inWord = false;
-                for (var i = 0; i < answerArray.length; i++) {
-                    if (word[i] == playerInput) {
-                        inWord = true;
+        }
 
+        console.log("lettersguessed" , lettersGuessed)
 
+    }
 
-                    }
-
-
-                    if (inWord) {
-                        for (var i = 0; i < blanks; i++) {
-                            if (word[i] == playerInput) {
-                                answerArray[i] == playerInput;
-
-
-                            } else {
-
-                                lettersGuessed.push(playerInput);
-                                remainingGuesses--;
-                            };
-
-                            console.log(lettersGuessed, "letters guessed");
-                            console.log("remainingguesses", remainingGuesses);
-
-
-
-                        }
-                    }
-                    //breaks loop so it doesnt iterate through whole array
+        
 
 
 
 
-
-
-
-                }
-
-
-            }
-
-
-
-
-            while (blanks > 0)
+    
 
 
 
@@ -106,4 +129,3 @@ gameLoop:
             // if it not equal then remove a guess left and list the letter to the side in html
             //   
 
-    
